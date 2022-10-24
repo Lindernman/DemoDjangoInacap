@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="flex flex-col gap-10">
+
+    <div>
+        {% if error %}
+            <div class="text-rose-500">
+                {{error}}
+            </div>
+        {% else %}
+   
+        <table class="table">
+            <thead class="text-slate-300">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th></th>
+            </thead>
+            <tbody class="text-white">
+                {{persona}}
+                <tr>
+                    <th>{{persona.id}}</th>
+                    <td>{{persona.nombre}}</td>
+                    <td>{{persona.edad}}</td>
+                    <td>{{persona.comuna}}</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    
+    <form method="POST" type="submit" action="/eliminar/{{persona.id}}">
+        {% csrf_token %}
+        
+        <button class="btn btn-danger ">Eliminar</button>
+        
+        
+    </form>
+    {% endif %}
+
+
+
+</div>
+{% endblock content %}

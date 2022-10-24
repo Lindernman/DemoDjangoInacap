@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<div class="flex flex-col gap-10">
+
+    <div>
+        <table class="table">
+            <thead class="text-slate-300">
+                <th>ID</th>
+                <th>Nombre</th>
+                <th></th>
+            </thead>
+            <tbody class="text-white">
+                {% for persona in personas %}
+                <tr>
+                    <th>{{persona.id}}</th>
+                    <td>{{persona.nombre}}</td>
+                    <td><a href="/personas/{{persona.id}}" class="btn btn-primary">VER</a></td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <form method="POST" type="submit" action="/registrar">
+        {% csrf_token %}
+        <input class="input text-white" id="nombre" type="text" name="nombre" maxlength="100" required>
+
+        <button class="btn btn-primary ">Registrar</button>
+
+
+    </form>
+
+
+
+</div>
+{% endblock content %}
