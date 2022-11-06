@@ -18,10 +18,11 @@
             <thead class="text-slate-300">
                 <th>ID</th>
                 <th>Nombre</th>
-                <th></th>
+                <th>Edad</th>
+                <th>Comuna</th>
             </thead>
             <tbody class="text-white">
-                {{persona}}
+                
                 <tr>
                     <th>{{persona.id}}</th>
                     <td>{{persona.nombre}}</td>
@@ -34,7 +35,7 @@
         </table>
     </div>
     
-    <form method="POST" type="submit" action="/eliminar/{{persona.id}}">
+    <form method="POST" type="submit" action="/personas/{{persona.id}}/eliminar">
         {% csrf_token %}
         
         <button class="btn btn-danger ">Eliminar</button>

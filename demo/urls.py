@@ -6,12 +6,13 @@ from django.shortcuts import render
 from django.urls import include, path
 
 
-from demo.views import Personas, Principal, Registrar, UnaPersona
-
+from . import views
 urlpatterns = [
-
-    path('', Principal, name='Inicio'),
-    path('personas', Personas, name='Personas'),
-    path('personas/<int:id>', UnaPersona, name='Persona'),
-    path('registrar', Registrar, name='Registro')
+    path('', views.Principal, name='Inicio'),
+    path('personas', views.Personas, name='Personas'),
+    path('registrar', views.Registrar, name='Registro'),
+    path('personas/<int:pk>', views.UnaPersona, name='Persona'),
+    path('personas/<int:pk>/eliminar', views.EliminarPersona, name='Eliminar')
+    # path('personas', PersonasView.as_view(), name='Personas'),
+    # path('personas/<int:pk>', DetalleView.as_view(), name='Persona'),
 ]
